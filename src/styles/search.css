@@ -1,0 +1,43 @@
+.search-span{
+    font-size: 22px;
+}
+.search-span-two {
+    font-size: 17px;
+}
+#search_adhaar {
+    margin-top: 14px;
+}
+.profile-name {
+    font-size: 24px;
+    font-family: serif;
+}
+.profile-adhaar {
+    font-size: 12px;
+    font-family: initial;
+}
+.ant-card-head-title {
+    flex: none;
+}
+.ant-card-type-inner .ant-card-extra {
+    padding: 0.5px 0;
+}
+.ant-rate-star:not(:last-child) {
+    margin-right: -6px;
+}
+.ant-card-body {
+    text-align: left;
+}
+.anticon-plus {
+    margin: -12px 0px 0px -13px;
+}
+.profile-btn {
+    float: right;
+}
+
+.ant-calendar-picker-clear, .ant-calendar-picker-icon {
+    top: 0%!important;
+    right: 24px!important;
+}
+.anticon-upload {
+    margin: -12px 0px 0px -12px;
+}
