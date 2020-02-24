@@ -140,6 +140,7 @@ class SignUp extends Component {
                     })(<Input 
                             onChange={this.handleChange}
                             name="firstname"
+                            placeholder="First Name"
                         />)}
                 </Form.Item>
                 <Form.Item label="Last Name">
@@ -156,6 +157,7 @@ class SignUp extends Component {
                     })(<Input 
                             onChange={this.handleChange}
                             name="lastname"
+                            placeholder="Last Name"
                         />)}
                 </Form.Item>
                 <Form.Item label="Company">
@@ -172,6 +174,7 @@ class SignUp extends Component {
                     })(<Input 
                             onChange={this.handleChange}
                             name="company"
+                            placeholder="Company"
                     />)}
                 </Form.Item>
                 <Form.Item label="Brand">
@@ -188,6 +191,7 @@ class SignUp extends Component {
                     })(<Input 
                             onChange={this.handleChange}
                             name="brand"
+                            placeholder="Brand"
                     />)}
                 </Form.Item>
                 <Form.Item label="E-mail">
@@ -205,6 +209,7 @@ class SignUp extends Component {
                     })(<Input 
                             onChange={this.handleChange}
                             name="email"
+                            placeholder="Email"
                     />)}
                 </Form.Item>
                 <Form.Item label="Password" hasFeedback>
@@ -223,6 +228,7 @@ class SignUp extends Component {
                     })(<Input.Password 
                             onChange={this.handleChange}
                             name="password"
+                            placeholder="Password"
                       />)}
                 </Form.Item>
                 <Form.Item label="Confirm Password" hasFeedback>
@@ -240,6 +246,7 @@ class SignUp extends Component {
                             onBlur={this.handleConfirmBlur}
                             onChange={this.handleChange}
                             name="confirmpassword" 
+                            placeholder="Confirm Password"
                         />)}
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout}>
