@@ -21,7 +21,7 @@ class ProfilePage extends Component {
         return (
             <div>
                 <Row gutter={16}>
-                    <Col span={8}>
+                    <Col span={8} className="show-profile">
                         <Card
                             hoverable
                             cover={<img

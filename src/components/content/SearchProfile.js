@@ -14,7 +14,8 @@ class SearchProfile extends Component {
 
         this.state = {
             adhaar: '',
-            showSearch: this.props.showSearch,
+            //showSearch: this.props.showSearch,
+            showSearch: true,
             showProfile: false,
             profileDetails: [],
             showAddReview: false

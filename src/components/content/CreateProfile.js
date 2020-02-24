@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Select, Button, Upload, Icon, Input } from 'antd';
-
+import { postProfileDetails } from '../../api/Login';
 import '../../styles/search.css';
 
 const { Option } = Select;
@@ -13,7 +13,7 @@ class CreateProfile extends Component {
             firstname: '',
             lastname: '',
             adhaarno: '',
-            profilepicture: '',
+            profilepicture: null,
         }
     }
     validateFirstName = (rule, value, callback) => {
@@ -29,7 +29,7 @@ class CreateProfile extends Component {
         } else {
             callback();
         }
-    };    
+    };
     validateAdhaar = (rule, value, callback) => {
         if (isNaN(value) || value.length != 12) {
             callback(' ');
@@ -49,14 +49,38 @@ class CreateProfile extends Component {
             [event.target.name]: event.target.value
         });
     };
+    onChangeHandler = (event) => {
+        this.setState({
+            profilepicture: event.target.files[0]
+        })
+    }
     handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                this.createProfile();
             }
         });
     };
+    createProfile = () => {
+        var data = new FormData();
+        data.append('fName', this.state.firstname);
+        data.append('lName', this.state.lastname);
+        data.append('aadhaar', this.state.adhaarno);
+        data.append('image', this.state.profilepicture);
+        let url = "https://zlitmus.herokuapp.com/candidate/create"
+        let method = 'POST';
+        let header = {
+            "Content-Type": "multipart/form-data"
+        };
+        Promise.all([
+            postProfileDetails(url, method, header, data)
+        ]).then(responses => responses.forEach(
+            response => alert(response.message)
+        ))
+            .catch(err => alert(err));
+    }
     render() {
         const { getFieldDecorator } = this.props.form;
         const formItemLayout = {
@@ -113,13 +137,13 @@ class CreateProfile extends Component {
                         ],
                     })(<Input
                         onChange={this.handleChange}
-                        name="adhaar"
+                        name="adhaarno"
                         maxLength={12}
                         placeholder="Adhaar Number"
                     />)}
                 </Form.Item>
                 <Form.Item label="Upload Profile">
-                    {getFieldDecorator('upload',{
+                    {/* {getFieldDecorator('upload',{
                         rules: [
                             {
                                 required: true,
@@ -139,7 +163,15 @@ class CreateProfile extends Component {
                                 <Icon type="upload" /> Click to upload
                             </Button>
                         </Upload>,
-                    )}
+                    )} */}
+                    <div className="upload-input">
+                        <Input
+                            className="profile-upload"
+                            type="file"
+                            name="file"
+                            onChange={this.onChangeHandler}
+                        />
+                    </div>
                 </Form.Item>
                 <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
                     <Button type="primary" htmlType="submit">
