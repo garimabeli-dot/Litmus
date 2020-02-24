@@ -91,8 +91,11 @@ class App extends Component {
                             </Header>
                             <Content className="content">
                                 <Switch>
-                                    <Route exact path="/searchprofile">
-                                        <SearchProfile showSearch={true} />
+                                <Route exact path="/">
+                                        <SearchProfile/>
+                                    </Route>
+                                    <Route path="/searchprofile">
+                                        <SearchProfile/>
                                     </Route>
                                     <Route path="/addreview">
                                         <AddReview />
