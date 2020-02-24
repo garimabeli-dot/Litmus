@@ -15,6 +15,9 @@
     font-size: 12px;
     font-family: initial;
 }
+.ant-form-item label {
+    font-weight: 400;
+}
 .ant-card-head-title {
     flex: none;
 }
@@ -40,4 +43,20 @@
 }
 .anticon-upload {
     margin: -12px 0px 0px -12px;
+}
+.show-profile {
+    padding: 12px 12px 200px 12px;
+    background-color: #012340;
+}
+.ant-rate {
+    font-size: 15px!important;
+}    
+.ant-rate-star {
+    margin: -4px!important;
+}
+.upload-input{
+	padding: 3px 0px 0 52px;
+}
+.profile-upload {
+	padding: 2px 15px!important;
 }

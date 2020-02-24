@@ -1,5 +1,5 @@
 .ant-modal-header {
-    background-color: #3c3b3e;
+    background-color: #012340;
 }
 .anticon-exclamation-circle {
     width: 3em!important;
@@ -8,7 +8,7 @@
     color: #f2eff5;
 }
 .ant-modal-body {
-    background-color: #dddfe8;
+    background-color: #f5f5f9;
 }
 .ant-modal-footer {
     background-color : #c6c5ca;

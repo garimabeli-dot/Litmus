@@ -1,3 +1,15 @@
 .ant-tabs-nav-scroll {
     float: left;
 }
+.form-password {
+    padding: 3px 0px 0 81px;
+}
+/* .ant-form-item-children-icon {
+    margin: 11px -148px 0px 0px!important;
+} */
+.manage-user-table {
+    font-size: 12px;
+}
+.btn {
+    padding: 0px 0px 0px 0px;
+}
