@@ -70,12 +70,9 @@ class CreateProfile extends Component {
         data.append('aadhaar', this.state.adhaarno);
         data.append('image', this.state.profilepicture);
         let url = "https://zlitmus.herokuapp.com/candidate/create"
-        let method = 'POST';
-        let header = {
-            "Content-Type": "multipart/form-data"
-        };
+        let method = 'POST';        
         Promise.all([
-            postProfileDetails(url, method, header, data)
+            postProfileDetails(url, method, data)
         ]).then(responses => responses.forEach(
             response => alert(response.message)
         ))
