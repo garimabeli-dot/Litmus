@@ -54,18 +54,18 @@ class ProfilePage extends Component {
                                 </Row>
                             </div>
                             {this.props.profileDetails.reviews.map(function (item, index) {
-                                let review = 0;
-                                rating.map(function (rate) {
-                                    if (item.review == rate.type) {
-                                        review = rate.id;
-                                        return false;
-                                    }
-                                })
+                                // let review = 0;
+                                // rating.map(function (rate) {
+                                //     if (item.review == rate.type) {
+                                //         review = rate.id;
+                                //         return false;
+                                //     }
+                                // })
                                 return (
                                     <Card type="inner"
                                         key={index}
                                         title={item.company}
-                                        extra={<Rate disabled defaultValue={review} />}>
+                                        extra={<Rate disabled defaultValue={item.review} />}>
                                         {item.brand}   <br></br>
                                         {item.addedBy}
                                     </Card>

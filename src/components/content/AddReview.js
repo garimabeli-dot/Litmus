@@ -10,7 +10,7 @@ class Header extends Component {
             showAddReview : false
         }
     }
-    addReviews = (e) => {
+    addReviews = (e) => {debugger
         this.setState({
             showAddReview : true
         })

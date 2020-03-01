@@ -13,3 +13,9 @@
 .btn {
     padding: 0px 0px 0px 0px;
 }
+.ant-btn-link {
+    background-color: floralwhite!important;
+}
+.ant-btn-outline-primary {
+    margin-bottom: 10px!important;
+}

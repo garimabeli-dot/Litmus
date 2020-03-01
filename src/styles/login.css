@@ -1,5 +1,5 @@
 .ant-modal-header {
-    background-color: #012340;
+    background-color: #1A3150;
 }
 .anticon-exclamation-circle {
     width: 3em!important;
@@ -8,18 +8,21 @@
     color: #f2eff5;
 }
 .ant-modal-body {
-    background-color: #f5f5f9;
+    background-color: #fff;
 }
 .ant-modal-footer {
     background-color : #c6c5ca;
 }
 .ant-input {
-    background-color: #f1eff7;
+    border-style: none none solid none;
+    background-color: #fff;
+    border-color: #505050;
+    border-radius: 0px!important;
     width: 310px;
 }
-.has-error .ant-input, .has-error .ant-input:hover {
-    background-color: #f1eff7;
-}
+/* .has-error .ant-input, .has-error .ant-input:hover {
+    background-color: #f6f6fa;
+} */
 .ant-btn {
     background-color: #f1eff7;
 }

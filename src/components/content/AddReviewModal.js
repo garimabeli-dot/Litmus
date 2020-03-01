@@ -21,6 +21,7 @@ class AddReview extends Component {
         this.state = {
             loading: false,
             showAddReview: this.props.showAddReview,
+            title: '',
             company: '',
             brand: '',
             startDate: '',
@@ -41,7 +42,13 @@ class AddReview extends Component {
             showSignUp: value
         });
     }
-
+    validateTitle = (rule, value, callback) => {
+        if (!value) {
+            callback(' ');
+        } else {
+            callback();
+        }
+    };
     validateCompany = (rule, value, callback) => {
         if (!value) {
             callback(' ');
@@ -94,37 +101,38 @@ class AddReview extends Component {
     };
 
     postReviews() {
-        let rate = '';
-        rating.map(function (rateObj) {
-            if (rateObj.id == this.state.rate) {
-                rate = rateObj.type;
-            }
-        }.bind(this));
+        // let rate = '';
+        // rating.map(function (rateObj) {
+        //     if (rateObj.id == this.state.rate) {
+        //         rate = rateObj.type;
+        //     }
+        // }.bind(this));
         let startDate = moment(this.state.startDate).valueOf();
         let endDate = moment(this.state.endDate).valueOf();
         let obj = {
             candidate: 1,
             addedBy: 1,
             company: this.state.company,
+            title: this.state.title,
             brand: this.state.brand,
-            review: rate,
+            review: this.state.rate,
             startDate: startDate,
             endDate: endDate
         }
 
-        let url = "https://zlitmus.herokuapp.com/review/create",        
+        let url = "https://zlitmus.herokuapp.com/review/create",
             method = 'POST',
             header = {
-            "Content-Type":"application/json"
+                "Content-Type": "application/json"
             };
 
         Promise.all([
-            postReviews(url, method, header,obj)
+            postReviews(url, method, header, obj)
         ]).then(responses => responses.forEach(
             (response => {
                 alert(response.message);
                 this.setState({
-                    showAddReview : false
+                    showAddReview: false
                 })
             })
         ))
@@ -157,6 +165,23 @@ class AddReview extends Component {
                     ]}
                 >
                     <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+                        <Form.Item label="Title">
+                            {getFieldDecorator('title', {
+                                rules: [
+                                    {
+                                        required: true,
+                                        message: 'Please Enter Title!',
+                                    },
+                                    {
+                                        validator: this.validateTitle
+                                    },
+                                ],
+                            })(<Input
+                                onChange={this.handleChange}
+                                name="title"
+                                placeholder="Enter Job Title"
+                            />)}
+                        </Form.Item>
                         <Form.Item label="Company">
                             {getFieldDecorator('company', {
                                 rules: [
@@ -171,6 +196,7 @@ class AddReview extends Component {
                             })(<Input
                                 onChange={this.handleChange}
                                 name="company"
+                                placeholder="Enter Company"
                             />)}
                         </Form.Item>
                         <Form.Item label="Brand">
@@ -187,8 +213,10 @@ class AddReview extends Component {
                             })(<Input
                                 onChange={this.handleChange}
                                 name="brand"
+                                placeholder="Enter Brand"
                             />)}
                         </Form.Item>
+
                         <Form.Item label="Start Date">
                             {getFieldDecorator('startdate',
                                 {
@@ -201,6 +229,7 @@ class AddReview extends Component {
                                 })(<DatePicker
                                     onChange={this.handleStartDate}
                                     name="startDate"
+                                    placeholder="Select Start Date"
                                 />)}
                         </Form.Item>
                         <Form.Item label="End date">
@@ -215,6 +244,7 @@ class AddReview extends Component {
                                 })(<DatePicker
                                     onChange={this.handleEndDate}
                                     name="endDate"
+                                    placeholder="Select End Date"
                                 />)}
                         </Form.Item>
                         <Form.Item label="Rating">
@@ -245,6 +275,7 @@ class AddReview extends Component {
                                 type="textarea"
                                 onChange={this.handleChange}
                                 name="remarks"
+                                placeholder="Enter Reviews"
                             />)}
                         </Form.Item>
                         {/* <Form.Item label="Upload" extra="longgggg">
