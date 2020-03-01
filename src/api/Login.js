@@ -30,11 +30,10 @@ export function postReviews(url, method,header=[],body='') {
     });
 }
 
-export function postProfileDetails(url, method,header=[],body='') {
+export function postProfileDetails(url, method,body='') {
     return new Promise((resolve, reject) => {
         fetch(url,{ 
             method: method,
-            headers:header,
             body: (body)
          })
             .then(handleErrors)
