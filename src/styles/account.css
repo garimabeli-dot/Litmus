@@ -15,6 +15,10 @@
 }
 .ant-btn-link {
     background-color: floralwhite!important;
+    border-radius: 0px!important;
+    color: #1890ff!important;
+    border-color: white!important;
+    font-size: 15px!important;
 }
 .ant-btn-outline-primary {
     margin-bottom: 10px!important;

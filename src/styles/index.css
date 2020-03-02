@@ -6,9 +6,17 @@ body{
     opacity: 0.8;
     font-family: open-sans!important;
 }
+#root {
+    height: 657px;
+}
+.ant-btn {
+    border-radius: 35px;
+    color: #1A3150;
+    border-color:#1A3150;
+}
 .side-icon {
     float: right;
-    margin: 20px 24px 0px 0px;
+    margin: 45px 24px 0px 0px;
 }
 .ant-layout-sider-children {
     padding-top: 20.1px;
@@ -24,25 +32,34 @@ body{
 }
 .App{
     text-align: center;
-    padding: 3%;
+    height: 100%;
+    font-size: 16px;
 }
 .ant-layout {
-    padding: 0 9px 0px 9px;
-}
-.ant-layout-has-sider {
-    padding: 12px 0px 0px 12px;
+    /* padding: 0 9px 0px 9px; */
+    background-color: white!important;
+    height:100%
 }
 .ant-layout-sider {
     background-color: #1A3150!important;
     opacity: 0.8;
 }
 .ant-layout-header {
-    background: #0015291a;
+    height:88px!important;
     opacity: 0.8;
+    border-bottom: black;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
 }
 .anticon {
-    padding: 17px 0px 0px 12px;
+    padding: 14px 0px 0px 12px;
     float: left;
+}
+.ant-btn .anticon.anticon-plus > svg, .ant-btn .anticon.anticon-minus > svg {
+    shape-rendering: unset!important;
+}
+.ant-message .anticon {
+    margin: -12px 8px 0px -16px!important;
 }
 .has-error .ant-input:focus, .ant-input:focus {
     box-shadow: none!important;
@@ -58,11 +75,13 @@ body{
 }
 .ant-menu-inline-collapsed > .ant-menu-item .anticon, .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .anticon, .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title .anticon, .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
     margin: -11px!important;
-    line-height: 32px!important;
+    line-height: 32px!important;    
+}
+.ant-menu-item {
+    font-size: 16px!important;
 }
 .content {
-    margin: 24px 16px;
-    padding: 24px;
+    padding: 40px 95px 0px 77px;
     background: rgb(255, 255, 255);
     min-height: 310px!important;
 }

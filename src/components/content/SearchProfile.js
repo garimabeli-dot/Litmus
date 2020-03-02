@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Empty, Input, Button, Form, Icon } from 'antd';
+import React, { Component, Fragment } from 'react';
+import { Input, Button, Form, Icon, notification, message } from 'antd';
 
 import NoProfile from './NoProfile';
 import ProfilePage from './ProfilePage';
@@ -7,6 +7,11 @@ import AddReviewModal from './AddReviewModal';
 
 import '../../styles/search.css';
 import { postLoginDetails } from '../../api/Login';
+
+message.config({
+    top: 560,
+    left:300,
+  });
 
 class SearchProfile extends Component {
     constructor(props) {
@@ -21,6 +26,17 @@ class SearchProfile extends Component {
             showAddReview: false
         }
     }
+    openNotification(title){
+        const args = {
+          message: title,
+          //duration: 0,
+        };
+        notification.open(args);
+      };
+      success(title){
+        message.success(title,5);
+      };
+      
     validateAdhaar = (rule, value, callback) => {
         if (isNaN(value) || value.length != 12) {
             callback(' ');
@@ -51,12 +67,14 @@ class SearchProfile extends Component {
             response => {
                 {
                     //alert(response.message);
-                    if (response.reviews.length > 0 && response.candidate != "") {
+                    // if (response.reviews.length > 0 && response.candidate != "") {
+                        if (response.candidate != "") {
                         this.setState({
                             showProfile: true,
                             showSearch: false,
                             profileDetails: response
-                        })
+                        });
+                        this.success(response.message);
                     }
                     else {
                         this.setState({
@@ -85,19 +103,22 @@ class SearchProfile extends Component {
         return (
             <div>
                 {this.state.showSearch ?
-                    <Empty
-                        image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
-                        imageStyle={{
-                            height: 60,
-                        }}
-                        description={
+                    <Fragment
+                        // image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
+                        // imageStyle={{
+                        //     height: 60,
+                        // }}
+                        //description={
+                            
+                        //}
+                    >
+                        <div className="search-adhaar-no">
                             <span>
                                 <span className="search-span">Search or Create</span><br></br>
                                 <span className="search-span-two">via Adhaar</span>
                             </span>
-                        }
-                    >
-                        Enter Adhaar Number<br></br>
+                        </div>
+                        <br></br>
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Item label="">
                                 {getFieldDecorator('adhaar', {
@@ -114,13 +135,13 @@ class SearchProfile extends Component {
                                     onChange={this.handleChange}
                                     name="adhaar"
                                     maxLength={12}
-                                    placeholder="Adhaar Number"
+                                    placeholder="                                   Enter Adhaar Number"
                                 />)}
                             </Form.Item>
                             <Form.Item>
                                 <Button
                                     htmlType="submit">
-                                    Search
+                                    SEARCH
                                 </Button>
                                 &nbsp;&nbsp;&nbsp;
                                     <Button
@@ -128,11 +149,11 @@ class SearchProfile extends Component {
                                         onClick={this.addReviews}
                                 >
                                         <Icon type="plus" />
-                                        Add Reviews
+                                        ADD REVIEW
                                     </Button>
                             </Form.Item>
                         </Form>
-                    </Empty>
+                    </Fragment>
 
                     :
                     (this.state.showProfile ?

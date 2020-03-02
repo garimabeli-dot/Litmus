@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Empty, Button } from 'antd';
+import { Icon, Button } from 'antd';
 import CreateProfile from './CreateProfile';
 
 class NoProfile extends Component {
@@ -21,18 +21,22 @@ class NoProfile extends Component {
                 {this.state.createProfile ? 
                 <CreateProfile />
                 : 
-                <Empty
-                    description={
-                        <span>
+                <div className="search-adhaar-no">
+                     <span>
                             <span className="search-span">Sorry!</span><br></br>
-                            No profile found for the Adhaar Number entered!
-                    </span>
-                    }
-                    >
-                    <Button
+                            No profile found for the <br></br>Adhaar Number entered!
+                    </span><br></br><br></br>
+                    {/* <Button
                         onClick={this.createProfile}
-                    >Create Profile</Button>
-                </Empty>}
+                    >Create Profile</Button> */}
+                    <Button
+                            htmlType="button"
+                            onClick={this.createProfile}
+                        >
+                        <Icon type="plus" />
+                        ADD REVIEW
+                    </Button>
+                </div>}
             </Fragment>
         )
     }

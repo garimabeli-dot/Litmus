@@ -8,12 +8,33 @@
     margin-top: 14px;
 }
 .profile-name {
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: 600;
     font-family: serif;
+    color: white;
+    text-transform: uppercase;
 }
-.profile-adhaar {
-    font-size: 12px;
-    font-family: initial;
+.profile-last-name {
+    color:white;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+.profile-heading {
+    list-style: none;
+    color: white;
+    padding: 24px 0px 0px 0px;
+    line-height: 1;
+    text-align: left;
+}
+.profile-desc {
+    padding: 0px 18px 5px 0px;
+    list-style: none;
+    color: white;
+    text-align: left;
+}
+.review-head {
+    font-weight: 700;
+    font-size: 25px;
 }
 .ant-form-item label {
     font-weight: 400;
@@ -47,6 +68,30 @@
 .show-profile {
     padding: 12px 12px 200px 12px;
     background-color: #1A3150;
+    width: 200px!important;
+    height: 100%!important;
+}
+.user-row-profile {
+    height:510px!important;
+}
+.image-card {
+    border-radius: 50%!important;
+    height: 150px;
+    width: 150px;
+    margin-left: 20px!important;
+}
+.show-reviews {
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+    height: 100%!important;
+    overflow-y: scroll!important;
+}
+.ant-card-cover img {
+    border-radius: 50%!important;
+    width: 110px;
+    height: 110px;
+    margin-left: 20px;
+    margin-top: 16px;
 }
 .ant-rate {
     font-size: 15px!important;
@@ -59,4 +104,22 @@
 }
 .profile-upload {
 	padding: 2px 15px!important;
+}
+.input:-internal-autofill-selected {
+    background-color: white!important;
+}
+.ant-message-notice {
+    padding: 8px 24px 0px 0px!important;
+    text-align: right!important;
+}
+.search-adhaar-no {
+    line-height: 1.2;
+    color: darkgray;
+    margin-top: 80px;
+}
+.panel-body, .ant-collapse-header {
+    color: #1A3150;
+}
+.ant-btn .anticon.anticon-plus > svg, .ant-btn .anticon.anticon-minus > svg {
+    shape-rendering: unset!important;
 }

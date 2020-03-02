@@ -23,7 +23,7 @@ class Header extends Component {
                     onClick={this.addReviews}
                 >
                     <Icon type="plus" />
-                    Add Reviews
+                    ADD REVIEW
                 </Button>
                 {this.state.showAddReview ? <AddReviews showAddReview={this.state.showAddReview} /> : ''}                
             </div>
