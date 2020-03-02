@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Input, Button, Form, Icon, notification, message } from 'antd';
+import { Input, Button, Form, Icon, message } from 'antd';
 
 import NoProfile from './NoProfile';
 import ProfilePage from './ProfilePage';
@@ -26,17 +26,12 @@ class SearchProfile extends Component {
             showAddReview: false
         }
     }
-    openNotification(title){
-        const args = {
-          message: title,
-          //duration: 0,
-        };
-        notification.open(args);
-      };
       success(title){
         message.success(title,5);
       };
-      
+      error(title){
+        message.error(title,5);
+      };
     validateAdhaar = (rule, value, callback) => {
         if (isNaN(value) || value.length != 12) {
             callback(' ');
@@ -85,11 +80,12 @@ class SearchProfile extends Component {
                 }
             }
         ))
-            .catch(err => {alert(err);
+            .catch(err => {
                 this.setState({
                     showProfile: false,
                     showSearch: false
                 })
+                this.error(err);
             });
     }
     addReviews = (e) => {
@@ -135,7 +131,7 @@ class SearchProfile extends Component {
                                     onChange={this.handleChange}
                                     name="adhaar"
                                     maxLength={12}
-                                    placeholder="                                   Enter Adhaar Number"
+                                    placeholder="                    Enter Adhaar Number"
                                 />)}
                             </Form.Item>
                             <Form.Item>

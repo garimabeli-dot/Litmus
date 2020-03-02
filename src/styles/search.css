@@ -100,10 +100,15 @@
     margin: -4px!important;
 }
 .upload-input{
-	padding: 3px 0px 0 52px;
+	padding: 2px 0px 0 26px;
 }
 .profile-upload {
-	padding: 2px 15px!important;
+    padding: 35px 0px 0px 0!important;
+    margin: 51px 0px 0px -32px!important;
+    border-radius: 25px!important;
+    border: 1px solid #1A3150!important;
+    width: 107px!important;
+    height: 10px!important;
 }
 .input:-internal-autofill-selected {
     background-color: white!important;
@@ -122,4 +127,7 @@
 }
 .ant-btn .anticon.anticon-plus > svg, .ant-btn .anticon.anticon-minus > svg {
     shape-rendering: unset!important;
+}
+.delete-review {
+    float: left;
 }

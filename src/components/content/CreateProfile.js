@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Select, Button, Upload, Icon, Input } from 'antd';
+import { Form, Select, Button, Upload, Icon, Input, Card, Row, Col, Rate } from 'antd';
 import { postProfileDetails } from '../../api/Login';
 import '../../styles/search.css';
 
@@ -70,7 +70,7 @@ class CreateProfile extends Component {
         data.append('aadhaar', this.state.adhaarno);
         data.append('image', this.state.profilepicture);
         let url = "https://zlitmus.herokuapp.com/candidate/create"
-        let method = 'POST';        
+        let method = 'POST';
         Promise.all([
             postProfileDetails(url, method, data)
         ]).then(responses => responses.forEach(
@@ -85,97 +85,141 @@ class CreateProfile extends Component {
             wrapperCol: { span: 14 },
         };
         return (
-            <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-                <Form.Item label="">
-                    <span className="ant-form-text">Create Profile</span>
-                </Form.Item>
-                <Form.Item label="First Name">
-                    {getFieldDecorator('fname', {
-                        rules: [
-                            {
-                                required: true,
-                                message: 'Please Enter First Name!',
-                            },
-                            {
-                                validator: this.validateFirstName,
-                            },
-                        ],
-                    })(<Input
-                        onChange={this.handleChange}
-                        name="firstname"
-                    />)}
-                </Form.Item>
-                <Form.Item label="Last Name">
-                    {getFieldDecorator('lname', {
-                        rules: [
-                            {
-                                required: true,
-                                message: 'Please Enter Last Name!',
-                            },
-                            {
-                                validator: this.validateLastName,
-                            },
-                        ],
-                    })(<Input
-                        onChange={this.handleChange}
-                        name="lastname"
-                    />)}
-                </Form.Item>
-                <Form.Item label="Adhaar Number">
-                    {getFieldDecorator('adhaar', {
-                        rules: [
-                            {
-                                required: true,
-                                message: 'Please Enter Valid Adhaar Number!',
-                            },
-                            {
-                                validator: this.validateAdhaar,
-                            },
-                        ],
-                    })(<Input
-                        onChange={this.handleChange}
-                        name="adhaarno"
-                        maxLength={12}
-                        placeholder="Adhaar Number"
-                    />)}
-                </Form.Item>
-                <Form.Item label="Upload Profile">
-                    {/* {getFieldDecorator('upload',{
-                        rules: [
-                            {
-                                required: true,
-                                message: 'Please Upload Profile Picture!',
-                            },
-                            {
-                                valuePropName: 'fileList',
-                                getValueFromEvent: this.normFile,
-                            }
-                        ]
-                        })(
-                        <Upload 
-                            name="profilepicture" 
-                            action="/upload.do" 
-                            listType="picture">
-                            <Button>
-                                <Icon type="upload" /> Click to upload
-                            </Button>
-                        </Upload>,
-                    )} */}
-                    <div className="upload-input">
-                        <Input
-                            className="profile-upload"
-                            type="file"
-                            name="file"
-                            onChange={this.onChangeHandler}
-                        />
-                    </div>
-                </Form.Item>
-                <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
-                    <Button type="primary" htmlType="submit">
-                        Create Profile
-                    </Button>
-                </Form.Item>
-            </Form>
+            <Row gutter={16} className="user-row-profile">
+                <Col span={6} className="show-profile">
+                    <Form>
+                        <Card
+                            className="image-card"
+                            hoverable
+                            cover={<div className="upload-input">
+                                {/* <span className="profile-text">Upload Picture</span> */}
+                                <Form.Item>
+                                    <div className="upload-input">
+                                        <Input
+                                            className="profile-upload ant-btn"
+                                            type="file"
+                                            name="file"
+                                            onChange={this.onChangeHandler}
+                                        />
+                                    </div>
+                                </Form.Item>
+                            </div>}
+                        //cover={<img alt="Profile Picture" src=""/>}
+                        >
+                        </Card>
+                    </Form>
+                </Col>
+                <Col span={16} className="show-reviews">
+                    <Card>
+                        <Row gutter={8}>
+                            <Col span={12}>
+                                <span className="review-head">JOB TIMELINE</span>
+                            </Col>
+                            <Col span={12}>
+                                <Button
+                                    //onClick={this.addReview}
+                                    className="profile-btn"
+                                >
+                                    <Icon type="plus" />
+                                    ADD REVIEW
+                                        </Button>
+                            </Col>
+                        </Row>
+                    </Card>
+                </Col>
+            </Row>
+
+            // <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+            //     <Form.Item label="">
+            //         <span className="ant-form-text">Create Profile</span>
+            //     </Form.Item>
+            //     <Form.Item label="First Name">
+            //         {getFieldDecorator('fname', {
+            //             rules: [
+            //                 {
+            //                     required: true,
+            //                     message: 'Please Enter First Name!',
+            //                 },
+            //                 {
+            //                     validator: this.validateFirstName,
+            //                 },
+            //             ],
+            //         })(<Input
+            //             onChange={this.handleChange}
+            //             name="firstname"
+            //         />)}
+            //     </Form.Item>
+            //     <Form.Item label="Last Name">
+            //         {getFieldDecorator('lname', {
+            //             rules: [
+            //                 {
+            //                     required: true,
+            //                     message: 'Please Enter Last Name!',
+            //                 },
+            //                 {
+            //                     validator: this.validateLastName,
+            //                 },
+            //             ],
+            //         })(<Input
+            //             onChange={this.handleChange}
+            //             name="lastname"
+            //         />)}
+            //     </Form.Item>
+            //     <Form.Item label="Adhaar Number">
+            //         {getFieldDecorator('adhaar', {
+            //             rules: [
+            //                 {
+            //                     required: true,
+            //                     message: 'Please Enter Valid Adhaar Number!',
+            //                 },
+            //                 {
+            //                     validator: this.validateAdhaar,
+            //                 },
+            //             ],
+            //         })(<Input
+            //             onChange={this.handleChange}
+            //             name="adhaarno"
+            //             maxLength={12}
+            //             placeholder="Adhaar Number"
+            //         />)}
+            //     </Form.Item>
+            //     <Form.Item label="Upload Profile">
+            //         {/* {getFieldDecorator('upload',{
+            //             rules: [
+            //                 {
+            //                     required: true,
+            //                     message: 'Please Upload Profile Picture!',
+            //                 },
+            //                 {
+            //                     valuePropName: 'fileList',
+            //                     getValueFromEvent: this.normFile,
+            //                 }
+            //             ]
+            //             })(
+            //             <Upload 
+            //                 name="profilepicture" 
+            //                 action="/upload.do" 
+            //                 listType="picture">
+            //                 <Button>
+            //                     <Icon type="upload" /> Click to upload
+            //                 </Button>
+            //             </Upload>,
+            //         )} */}
+            //         <div className="upload-input">
+            //             <Input
+            //                 className="profile-upload"
+            //                 type="file"
+            //                 name="file"
+            //                 onChange={this.onChangeHandler}
+            //             />
+            //         </div>
+            //     </Form.Item>
+            //     <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
+            //         <Button type="primary" htmlType="submit">
+            //             Create Profile
+            //         </Button>
+            //     </Form.Item>
+            // </Form>
         )
     }
 }

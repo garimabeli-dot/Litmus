@@ -11,14 +11,14 @@
     background-color: #fff;
 }
 .ant-modal-footer {
-    background-color : #c6c5ca;
+    background-color : white;
 }
 .ant-input {
     border-style: none none solid none;
     background-color: #fff;
     border-color: darkgray;
-    border-radius: 0px!important;
-    width: 400px;
+    border-radius: 0px;
+    width: 300px;
 }
 .ant-btn {
     border-radius: 35px;

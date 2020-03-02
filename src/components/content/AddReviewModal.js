@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Modal, Button, Form, Select, DatePicker, Upload, Input, Rate, Row, Col } from 'antd';
 import moment from 'moment';
 
@@ -159,12 +159,17 @@ class AddReview extends Component {
                     title="ADD REVIEW"
                     onCancel={this.handleCancel}
                     footer={[
-                        <Button key="back" onClick={this.handleCancel}>
-                            Cancel
+                        <Fragment>
+                            <Button key="1" className="delete-review" onClick={this.handleCancel}>
+                                Delete
+                            </Button>
+                            <Button key="2" onClick={this.handleSubmit}>
+                                Publish
                         </Button>
+                        </Fragment>
                     ]}
                 >
-                    <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+                    <Form {...formItemLayout}>
                         <Form.Item label="Title">
                             {getFieldDecorator('title', {
                                 rules: [
@@ -291,13 +296,13 @@ class AddReview extends Component {
                             )}
                         </Form.Item> */}
 
-
+{/* 
 
                         <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
                             <Button type="primary" htmlType="submit">
                                 Submit
                         </Button>
-                        </Form.Item>
+                        </Form.Item> */}
                     </Form>
                 </Modal>
 
